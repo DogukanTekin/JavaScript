@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 İşlem Örnek</title>    
+</head>
+<body>  
+    <!-- JavaScript Kodları -->
+    <script>
+        function islem(isaret)
+        {
+            var s1 = parseInt(document.form.sayi1.value);
+            var s2 = parseInt(document.form.sayi2.value);
+            switch(isaret)
+            {
+                case '+':document.form.sonuc.value=s1+s2; break;
+                case '-':document.form.sonuc.value=s1-s2; break;
+                case '*':document.form.sonuc.value=s1*s2; break;
+                case '/':document.form.sonuc.value=s1/s2; break;
+            }
+        }
+    </script>
+
+    <!-- HTML Kodları -->
+    <form name="form">
+        Sayı 1 : <input type="text" name="sayi1"><br>
+        Sayı 2 : <input type="text" name="sayi2"><br>
+        <input type="button" onclick="islem('+')" value="+">
+        <input type="button" onclick="islem('-')" value="-">
+        <input type="button" onclick="islem('*')" value="*">
+        <input type="button" onclick="islem('/')" value="/"><br>
+        <input type="text" name="sonuc">
+    </form>
+</body>
+</html>

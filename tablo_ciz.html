@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Örneği</title>
+</head>
+<body>
+    <!-- JavaScript Kodları -->
+    <script>
+        function tablo()
+        {
+            //Formdan satir adlı değeri sat değişkenine, sutun adlı değeri sut değişkenine, birlestir adlı değeri birles değişkenine aktardık
+            //Tablo oluşturmak için öncelikle "<table border=1>" kullandık
+            //1'den satır sayısına kadar bir döngü oluşturduk ve bu döngünün içinde 1'den sütun sayısına kadar bir döngü daha oluşturduk.
+            //Satır sayısı her döndüğünde yeni satır eklemesi için sütun döngüsünden önce "<tr>" ekledik
+            //Birleştirmek istediğimiz satıra denk geldiğimizde colspan ile yazmasını istedik
+            //Birleştirmek istediğimiz satır gelmezse colspan olmadan normal döngü sayısı kadar yazmasını istedik
+            //Birleştirilmek istenen satır denk gelince sütun döngüsü bitmesi için j değerini sut+1 e eşitledim ve sütun döngüsünden çıkılmış oldu
+            sat = document.form.satir.value;
+            sut = document.form.sutun.value;
+            birles = document.form.birlestir.value;
+            document.write("<table border=1>");
+            for (i=1; i<=sat; i++)
+            {
+                document.write("<tr>")
+                for (j=1; j<=sut; j++)
+                {
+                    if (i==birles)
+                    {
+                        document.write("<td style=text-align:center; colspan="+sut+">"+i+" - "+j+"</td>")
+                        j = sut + 1
+                    }
+                    else
+                    {
+                        document.write("<td style=text-align:center;>"+i+" - "+j+"</td>")
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- HTML Kodları -->
+    <form name="form">
+        Satır Sayısı : <input type="text" name="satir"><br>
+        Sütun Sayısı : <input type="text" name="sutun"><br>
+        Birleşecek Satır : <input type="text" name="birlestir"><br>
+        <input type="submit" onclick="tablo()" value="Oluştur">
+    </form>
+</body>
+</html>
